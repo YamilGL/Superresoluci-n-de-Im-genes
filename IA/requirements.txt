@@ -1,0 +1,12 @@
+numpy
+opencv-python
+torch
+Pillow
+Flask
+Flask-Cors
+torchvision
+pyyaml
+einops
+scipy
+tqdm
+wandb

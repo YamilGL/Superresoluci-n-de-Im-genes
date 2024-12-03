@@ -1,0 +1,90 @@
+<div class="image-upload-container"></div>
+  <div class="p-grid">
+    <div class="p-col-12">
+      <div class="upload-section p-shadow-2">
+        <h2>MejorIA de Imágenes</h2>
+        <p-fileUpload
+          #fileUpload
+          name="file"
+          accept="image/*"
+          customUpload="true"
+          maxFileSize="1000000"
+          (uploadHandler)="onUpload($event)"
+          mode="basic"
+          chooseLabel="Elegir imágen"
+        ></p-fileUpload>
+      </div>
+    </div>
+    <p-galleria
+      [value]="QR"
+      [containerStyle]="{ 'max-width': '100%', 'max-height': '400px', 'margin-bottom': '1rem' }"
+      [showItemNavigators]="false"
+      [showThumbnails]="false"
+      *ngIf="!hasUploadedImage">
+      <ng-template pTemplate="item" let-item>
+        <img [src]="item.itemImageSrc" style="width: 100%; max-height: 400px; object-fit: contain;" />
+      </ng-template>
+    </p-galleria>
+  </div>
+
+  <div class="p-grid" *ngIf="hasUploadedImage">
+    <div class="p-col-12 p-md-6">
+      <div class="image-preview p-shadow-2">
+        <h3>Imágen Original</h3>
+        <p-galleria
+          [value]="images"
+          [containerStyle]="{ 'max-width': '100%', 'max-height': '700px', 'margin-bottom': '1rem' }"
+          [showItemNavigators]="false"
+          [showThumbnails]="false">
+          <ng-template pTemplate="item" let-item>
+            <img [src]="item.itemImageSrc" style="width: 100%; max-height: 700px; object-fit: contain;" />
+          </ng-template>
+        </p-galleria>
+
+        <div class="button-container">
+          <p-button
+            label="Procesar X2"
+            icon="pi pi-cog"
+            styleClass="p-button-primary p-mr-2 p-mb-2"
+            (onClick)="onProcess('2')"
+          ></p-button>
+          <p-button
+            label="Procesar X3"
+            icon="pi pi-cog"
+            styleClass="p-button-primary p-mr-2 p-mb-2"
+            (onClick)="onProcess('3')"
+          ></p-button>
+          <p-button
+            label="Procesar X4"
+            icon="pi pi-cog"
+            styleClass="p-button-primary p-mr-2 p-mb-2"
+            (onClick)="onProcess('4')"
+          ></p-button>
+          <p-button
+            label="Cancelar"
+            icon="pi pi-times"
+            styleClass="p-button-danger p-mb-2"
+            (onClick)="onCancel()"
+          ></p-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-col-12 p-md-6">
+      <div class="processing-result p-shadow-2">
+        <h3 *ngIf="isResult">Resultado</h3>
+        <p-progressSpinner *ngIf="isProcessing" styleClass="p-mb-2" class="spinner-container"></p-progressSpinner>
+        <p-galleria
+          *ngIf="!isProcessing && processingResult"
+          [value]="[{ itemImageSrc: getImageUrl(processingResult.resultImage) }]"
+          [containerStyle]="{ 'max-width': '100%', 'max-height': '700px', 'margin-bottom': '1rem' }"
+          [showItemNavigators]="false"
+          [showThumbnails]="false">
+          <ng-template pTemplate="item" let-item>
+            <img [src]="item.itemImageSrc" style="width: 100%; max-height: 700px; object-fit: contain;" />
+          </ng-template>
+        </p-galleria>
+      </div>
+    </div>
+  </div>
+

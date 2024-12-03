@@ -1,0 +1,51 @@
+/* General Container */
+.image-upload-container {
+  margin: 1rem; /* Espacio alrededor del contenedor de carga de imágenes */
+}
+
+/* Upload Section */
+.upload-section {
+  padding: 1rem; /* Espacio interno del contenedor de carga */
+  margin-bottom: 1rem; /* Espacio debajo de la sección de carga */
+}
+
+/* Grid Container */
+.p-grid {
+  margin: 1rem; /* Espacio alrededor del contenedor de grid */
+}
+
+/* Image Preview */
+.image-preview {
+  padding: 1rem; /* Espacio interno del contenedor de vista previa de imagen */
+  margin-bottom: 1rem; /* Espacio debajo del contenedor de vista previa */
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  gap: 1rem; /* Espacio entre los botones */
+  margin-bottom: 1rem; /* Espacio debajo del contenedor de botones */
+}
+
+/* Processing Result */
+.processing-result {
+  padding: 1rem; /* Espacio interno del contenedor de resultados de procesamiento */
+  margin-top: 1rem; /* Espacio arriba del contenedor de resultados */
+}
+
+/* Progress Spinner */
+.p-progressSpinner {
+  margin-bottom: 1rem; /* Espacio debajo del spinner de progreso */
+}
+
+/* Estilo adicional para los botones */
+.p-button {
+  margin: 0; /* Asegura que los botones no tienen margen adicional por defecto */
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center; /* Centra el spinner horizontalmente */
+  margin-bottom: 1rem; /* Espacio debajo del spinner */
+}
